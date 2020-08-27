@@ -1,12 +1,12 @@
-FROM node:13.3.0-alpine as build-stage
+FROM node:13.7.0-alpine as build-stage
 RUN mkdir /app
 WORKDIR /app
 ENV LC_ALL=en_US.UTF-8
 COPY ./ ./
 RUN apk add --update \
-    python \
-    python-dev \
-    build-base \
+  python \
+  python-dev \
+  build-base \
   && rm -rf /var/cache/apk/*
 RUN yarn install
 RUN yarn build
